@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
+  </head>
+  <body>
+  <div id="app">
+    <section class="section">
+      <div class="container">
+        <h1 class="title">
+          Olá Mundo!
+        </h1>
+        <p class="subtitle">
+        </p>
+      </div>
+    </section>
 
-<body>
-    <div id="app">
-        <section class="section">
-            <div class="container">
-                <h1 class="title">
-                    Hello World!
-                </h1>
-                <p class="subtitle">
-                </p>
-            </div>
-        </section>
+    <input @click="limpar" v-model="message" class="input" type="text" placeholder="Text input">
+    <br>
+    {{ message }}
+    </br>
+    <button @click="click" class="button is-link">{{ message2 }}</button>
+    </br>
 
-        <input @click="limpar" v-model="message" class="input" type="text" placeholder="Text input">
-        <br> {{ message }}
-        </br>
-        <button @click="click" class="button is-link">{{ message2 }}</button>
-        </br>
+    <my-component/>
 
-        <my-component/>
-
-    </div>
-</body>
+  </div>
+  </body>
 
 <script>
-    Vue.component('my-component', {
-        template: '<div>Um elemento personalizado!</br> <button class="button is-primary">Clique</button> </div>'
-    })
 
-    var app = new Vue({
-        el: '#app',
-        methods: {
-            click() {
-                this.message2 = this.message;
-            },
-            limpar() {
-                this.message = "";
-            }
-        },
-        data: {
-            message: 'Mensagem 1',
-            message2: 'Mensagem 2'
-        }
-    })
+  Vue.component('my-component', {
+    template: '<div>Um elemento personalizado!</br> <button class="button is-primary">Clique</button> </div>'
+  })
 
+  var app = new Vue({
+    el: '#app',
+    methods: {
+      click () {
+        this.message2 = this.message;
+      },
+      limpar () {
+        this.message = "";
+      }
+    },
+    data: {
+      message: 'Mensagem 1',
+      message2: 'Mensagem 2'
+    }
+  })
 </script>
 
 
